@@ -31,6 +31,19 @@ export default class CartList extends Component{
 
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log("componentWillReceiveProps :: Next Props :: ",nextProps);
+    }
+
+    //Return true to reRender
+    //Return false shall not reRender
+    shouldComponentUpdate(nextProps, nextState){
+        console.log("shouldComponentUpdate :: Next Props :: ",nextProps);
+        return true;
+    }
+
+
+
     _renderItem({item}){
         return (
             <CartItem item={item}/>

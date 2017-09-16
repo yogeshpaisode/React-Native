@@ -17,10 +17,16 @@ export default class Cart extends Component{
             <View>
                 <Text>From Cart..</Text>
 
-                <Button title="Refresh"></Button>
+                <Button title="Refresh" onPress={this.refresh.bind(this)}></Button>
 
                 <CartList items={this.state.items}/>
             </View>
         )
+    }
+
+    refresh(){
+        this.setState({
+            toggle: true
+        })
     }
 }
