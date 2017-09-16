@@ -5,37 +5,42 @@ export default class CartItem extends Component{
 
     constructor(props){
         super(props);
+
+        this.state = {
+            qty: props.item.qty
+        };
     }
 
     render(){
         return (
             <View>
-
                 <Text>
-                    {this.props.title}
+                    Title : {this.props.item.title}
                 </Text>
                 <Text>
-                    {this.props.item.name}
+                    Name : {this.props.item.name}
                 </Text>
                 <Text>
-                    {this.props.item.qty}
+                   Quantity : {this.state.qty}
                 </Text>
-
                 <View>
                     <Button title="+1" onPress={this.incr.bind(this)}></Button>
                     <Button title="-1" onPress={this.decr.bind(this)}></Button>
                 </View>
-
             </View>
         )
     }
 
     incr(){
-        console.log("Increment..");
+        this.setState({
+            qty: this.state.qty + 1
+        });
     }
 
     decr(){
-        console.log("Decrement..");
+        this.setState({
+            qty: this.state.qty - 1
+        });
     }
 
 }

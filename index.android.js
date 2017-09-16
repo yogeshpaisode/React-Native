@@ -10,17 +10,30 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-import CartItem from "./component/cartItem";
+
+import Cart from "./component/cart";
 
 export default class ReactSample extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <CartItem item={{id: 1, name: "phone 1", qty:5}} title={"Cart Item..... >"}></CartItem>
-
-                <CartItem item={{id: 2, name: "phone 2", qty:3}}></CartItem>
+                <Cart items={this.genrateItems()}/>
             </View>
         );
+    }
+
+    genrateItems(){
+        let items = [];
+        for (let i = 0; i < 20; i++) {
+            items.push({
+                id: i,
+                title: "Phone details " + 1,
+                name: "Phone " + i,
+                price: 200 + i,
+                qty : 1
+            });
+        }
+        return items;
     }
 }
 

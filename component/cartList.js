@@ -1,14 +1,43 @@
 import React, { Component } from 'react';
-import {Text, View} from "react-native";
+import {FlatList, View} from "react-native";
+import CartItem from "./cartItem";
 
 export default class CartList extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            items: this.props.items
+        }
+    }
+
     render(){
         return (
             <View>
-                <Text>
-                    Cart List
-                </Text>
+                <FlatList data={this.state.items} renderItem={this._renderItem} keyExtractor={this._keyExtractor}/>
             </View>
         )
+    }
+
+    componentWillMount(){
+
+    }
+
+    componentDidMount(){
+
+    }
+
+    componentWillUnmount(){
+
+    }
+
+    _renderItem({item}){
+        return (
+            <CartItem item={item}/>
+        )
+    }
+
+    _keyExtractor(item, index){
+        return item.id;
     }
 }
